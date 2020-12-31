@@ -1,10 +1,12 @@
 import React from "react";
 
-export const PokemonList = () => {
+const PokemonList = () => {
   return (
     <div>
       
     </div>
   )
 }
+
+export default PokemonList
 
