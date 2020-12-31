@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
 
-export default function PokemonList() {
+export const PokemonList = () => {
   return (
     <div>
       
     </div>
   )
 }
+
