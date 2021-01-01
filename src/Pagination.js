@@ -1,9 +1,10 @@
 import React from "react";
 
-const Pagination = () => {
+const Pagination = ({ goToNextPage, goToPrevPage }) => {
   return (
     <div>
-      
+      <button>Previous</button>
+      <button>Next</button>
     </div>
   )
 }
