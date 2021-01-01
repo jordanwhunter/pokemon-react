@@ -8,9 +8,12 @@ const App = () => {
   const [currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon")
   const [nextPageUrl, setNextPageUrl] = useState()
   const [prevPageUrl, setPrevPageUrl] = useState()
+  const [loading, setLoading] = useState(true)
   
   useEffect(() => {
     axios.get(currentPageUrl).then(res => {
+      // change loading setting to false since initial loading setting is true - telling the app that the page needs to be loaded
+      setLoading(false)
       setNextPageUrl(res.data.next)
       setPrevPageUrl(res.data.previous)
       setPokemon(res.data.results.map(p => p.name))
