@@ -6,7 +6,9 @@ const App = () => {
   // initial state is set to empty, so an empty array is needed. using array destructuring, we set pokemon as our state and setPokemon as how we'll update state.
   const [pokemon, setPokemon] = useState([])
   const [currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon")
-
+  const [nextPageUrl, setNextPageUrl] = useState()
+  const [prevPageUrl, setPrevPageUrl] = useState()
+  
   useEffect(() => {
     axios.get(currentPageUrl).then(res => {
       setPokemon(res.data.results.map(p => p.name))
