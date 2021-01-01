@@ -11,6 +11,8 @@ const App = () => {
   
   useEffect(() => {
     axios.get(currentPageUrl).then(res => {
+      setNextPageUrl(res.data.next)
+      setPrevPageUrl(res.data.previous)
       setPokemon(res.data.results.map(p => p.name))
     })
   // every time currentPageUrl changes, this will trigger the useEffect hook and refresh the application
