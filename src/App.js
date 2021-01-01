@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PokemonList from "./PokemonList";
 import axios from "axios";
+import Pagination from "./Pagination";
 
 const App = () => {
   // initial state is set to empty, so an empty array is needed. using array destructuring, we set pokemon as our state and setPokemon as how we'll update state.
@@ -29,10 +30,27 @@ const App = () => {
   // every time currentPageUrl changes, this will trigger the useEffect hook and refresh the application
   }, [currentPageUrl])
 
+  const goToNextPage = () => {
+    setCurrentPageUrl(nextPageUrl)
+  }
+
+  const goToPrevPage = () => {
+    setCurrentPageUrl(prevPageUrl)
+  }
+
   if (loading) return "Loading Your Pokémon..."
 
   return (
-    <PokemonList pokemon={pokemon} />
+    // must be placed within a fragment to be able to return both elements
+    <>
+      <PokemonList 
+        pokemon={pokemon} 
+      />
+      <Pagination 
+        goToNextPage={goToNextPage}
+        goToPrevPage={goToPrevPage}
+      />
+    </>
   );
 }
 
